@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\code\pypaint\mainwindow.ui'
+# Form implementation generated from reading ui file 'd:\code\pypaint\mainwindow.ui',
+# licensing of 'd:\code\pypaint\mainwindow.ui' applies.
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created: Fri Sep 20 11:22:35 2019
+#      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
 
-
-from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PySide2 import QtCore, QtGui, QtWidgets
 
 class Ui_cydPaintBoard(object):
     def setupUi(self, cydPaintBoard):
@@ -41,8 +41,8 @@ class Ui_cydPaintBoard(object):
         QtCore.QMetaObject.connectSlotsByName(cydPaintBoard)
 
     def retranslateUi(self, cydPaintBoard):
-        _translate = QtCore.QCoreApplication.translate
-        cydPaintBoard.setWindowTitle(_translate("cydPaintBoard", "MainWindow"))
-        self.menuFile.setTitle(_translate("cydPaintBoard", "File"))
-        self.actionOpen.setText(_translate("cydPaintBoard", "Open"))
-        self.actionSave.setText(_translate("cydPaintBoard", "Save"))
+        cydPaintBoard.setWindowTitle(QtWidgets.QApplication.translate("cydPaintBoard", "MainWindow", None, -1))
+        self.menuFile.setTitle(QtWidgets.QApplication.translate("cydPaintBoard", "File", None, -1))
+        self.actionOpen.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Open", None, -1))
+        self.actionSave.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Save", None, -1))
+

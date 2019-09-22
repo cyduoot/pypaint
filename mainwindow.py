@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\code\pypaint\mainwindow.ui',
-# licensing of 'd:\code\pypaint\mainwindow.ui' applies.
+# Form implementation generated from reading ui file 'f:\code\pypaint\mainwindow.ui',
+# licensing of 'f:\code\pypaint\mainwindow.ui' applies.
 #
-# Created: Fri Sep 20 17:20:09 2019
+# Created: Mon Sep 23 00:02:12 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,11 +13,32 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_cydPaintBoard(object):
     def setupUi(self, cydPaintBoard):
         cydPaintBoard.setObjectName("cydPaintBoard")
-        cydPaintBoard.resize(130, 138)
+        cydPaintBoard.resize(432, 440)
         self.centralwidget = QtWidgets.QWidget(cydPaintBoard)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.toolBox = QtWidgets.QWidget(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(40)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.toolBox.sizePolicy().hasHeightForWidth())
+        self.toolBox.setSizePolicy(sizePolicy)
+        self.toolBox.setMinimumSize(QtCore.QSize(60, 0))
+        self.toolBox.setObjectName("toolBox")
+        self.toolButton = QtWidgets.QToolButton(self.toolBox)
+        self.toolButton.setGeometry(QtCore.QRect(0, 0, 25, 25))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icons/pen"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolButton.setIcon(icon)
+        self.toolButton.setCheckable(True)
+        self.toolButton.setObjectName("toolButton")
+        self.horizontalLayout.addWidget(self.toolBox)
+        self.line = QtWidgets.QFrame(self.centralwidget)
+        self.line.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.horizontalLayout.addWidget(self.line)
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
@@ -25,7 +46,7 @@ class Ui_cydPaintBoard(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 110, 73))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 337, 375))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -40,7 +61,7 @@ class Ui_cydPaintBoard(object):
         self.horizontalLayout.addWidget(self.scrollArea)
         cydPaintBoard.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(cydPaintBoard)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 130, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 432, 23))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -61,7 +82,9 @@ class Ui_cydPaintBoard(object):
 
     def retranslateUi(self, cydPaintBoard):
         cydPaintBoard.setWindowTitle(QtWidgets.QApplication.translate("cydPaintBoard", "MainWindow", None, -1))
+        self.toolButton.setText(QtWidgets.QApplication.translate("cydPaintBoard", "...", None, -1))
         self.menuFile.setTitle(QtWidgets.QApplication.translate("cydPaintBoard", "File", None, -1))
         self.actionOpen.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Open", None, -1))
         self.actionSave.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Save", None, -1))
 
+import paint_rc

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="icons">
+    <file alias="pen">image/icons/pen.png</file>
+  </qresource>
+</RCC>

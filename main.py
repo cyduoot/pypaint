@@ -3,6 +3,8 @@ from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PySide2.QtGui import QImage, QPixmap
 from mainwindow import Ui_cydPaintBoard
 import cv2
+import numpy as np
+from utils import imread
 
 
 class paintBoard(QMainWindow, Ui_cydPaintBoard):
@@ -17,7 +19,7 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
         self.statusbar.showMessage("open", 5000)
         fileName = QFileDialog.getOpenFileName(self, "Open an image file", "./", "Image files(*.bmp *.jpg *.png)")
         print(fileName)
-        self.img = cv2.imread(fileName[0])
+        img = imread(fileName)
         image_height, image_width, image_channel = self.img.shape
         qimg = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
         qimg = QImage(qimg.data, image_width, image_height,
@@ -30,6 +32,7 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
     def fileSave(self):
         self.statusbar.showMessage("Save", 5000)
         fileName = QFileDialog.getSaveFileName(self, "Save an imagefile", "./", "Images (*.png *.bmp *.jpg)")
+        print(fileName)
         cv2.imwrite(fileName[0], self.img)
 
 

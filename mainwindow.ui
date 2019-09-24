@@ -29,7 +29,7 @@
         <height>0</height>
        </size>
       </property>
-      <widget class="QToolButton" name="toolButton">
+      <widget class="QPushButton" name="toolPen">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -38,8 +38,11 @@
          <height>25</height>
         </rect>
        </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
        <property name="text">
-        <string>...</string>
+        <string/>
        </property>
        <property name="icon">
         <iconset resource="paint.qrc">
@@ -60,6 +63,9 @@
     </item>
     <item>
      <widget class="QScrollArea" name="scrollArea">
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
       <property name="verticalScrollBarPolicy">
        <enum>Qt::ScrollBarAsNeeded</enum>
       </property>
@@ -92,9 +98,12 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>54</width>
-          <height>12</height>
+          <width>121</width>
+          <height>131</height>
          </rect>
+        </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
         </property>
         <property name="text">
          <string/>

@@ -2,4 +2,7 @@
   <qresource prefix="icons">
     <file alias="pen">image/icons/pen.png</file>
   </qresource>
+  <qresource prefix="cursors">
+    <file alias="penCur">image/cursors/penCur.png</file>
+  </qresource>
 </RCC>

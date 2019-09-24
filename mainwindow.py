@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'f:\code\pypaint\mainwindow.ui',
 # licensing of 'f:\code\pypaint\mainwindow.ui' applies.
 #
-# Created: Mon Sep 23 00:02:12 2019
+# Created: Mon Sep 23 22:46:15 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,13 +26,15 @@ class Ui_cydPaintBoard(object):
         self.toolBox.setSizePolicy(sizePolicy)
         self.toolBox.setMinimumSize(QtCore.QSize(60, 0))
         self.toolBox.setObjectName("toolBox")
-        self.toolButton = QtWidgets.QToolButton(self.toolBox)
-        self.toolButton.setGeometry(QtCore.QRect(0, 0, 25, 25))
+        self.toolPen = QtWidgets.QPushButton(self.toolBox)
+        self.toolPen.setGeometry(QtCore.QRect(0, 0, 25, 25))
+        self.toolPen.setMouseTracking(True)
+        self.toolPen.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/pen"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.toolButton.setIcon(icon)
-        self.toolButton.setCheckable(True)
-        self.toolButton.setObjectName("toolButton")
+        self.toolPen.setIcon(icon)
+        self.toolPen.setCheckable(True)
+        self.toolPen.setObjectName("toolPen")
         self.horizontalLayout.addWidget(self.toolBox)
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
@@ -40,6 +42,7 @@ class Ui_cydPaintBoard(object):
         self.line.setObjectName("line")
         self.horizontalLayout.addWidget(self.line)
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
+        self.scrollArea.setMouseTracking(True)
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.scrollArea.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
@@ -54,7 +57,8 @@ class Ui_cydPaintBoard(object):
         self.scrollAreaWidgetContents.setSizePolicy(sizePolicy)
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.board = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.board.setGeometry(QtCore.QRect(0, 0, 54, 12))
+        self.board.setGeometry(QtCore.QRect(0, 0, 121, 131))
+        self.board.setMouseTracking(True)
         self.board.setText("")
         self.board.setObjectName("board")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
@@ -82,7 +86,6 @@ class Ui_cydPaintBoard(object):
 
     def retranslateUi(self, cydPaintBoard):
         cydPaintBoard.setWindowTitle(QtWidgets.QApplication.translate("cydPaintBoard", "MainWindow", None, -1))
-        self.toolButton.setText(QtWidgets.QApplication.translate("cydPaintBoard", "...", None, -1))
         self.menuFile.setTitle(QtWidgets.QApplication.translate("cydPaintBoard", "File", None, -1))
         self.actionOpen.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Open", None, -1))
         self.actionSave.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Save", None, -1))

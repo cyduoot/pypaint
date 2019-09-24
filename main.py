@@ -1,9 +1,9 @@
 import sys
 from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog
-from PySide2.QtGui import QImage, QPixmap
 from mainwindow import Ui_cydPaintBoard
 import cv2
-from utils import imread, imwrite
+from utils import imread, imwrite, showImage, changeCursor
+from PySide2.QtCore import Qt
 
 
 class paintBoard(QMainWindow, Ui_cydPaintBoard):
@@ -12,6 +12,7 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
         self.setupUi(self)
         self.actionOpen.triggered.connect(self.fileOpen)
         self.actionSave.triggered.connect(self.fileSave)
+        self.toolPen.clicked.connect(self.changePen)
         self.scrollArea.setWidgetResizable(False)
 
     def fileOpen(self):
@@ -19,20 +20,22 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
         fileName = QFileDialog.getOpenFileName(self, "Open an image file", "./", "Image files(*.bmp *.jpg *.png)")
         print(fileName)
         self.img = imread(fileName[0])
-        image_height, image_width, image_channel = self.img.shape
-        qimg = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
-        qimg = QImage(qimg.data, image_width, image_height,
-                      QImage.Format_RGB888)
-        pix = QPixmap.fromImage(qimg)
-        self.board.resize(pix.size())
-        self.board.setPixmap(pix)
-        self.scrollAreaWidgetContents.resize(pix.size())
+        showImage(self)
 
     def fileSave(self):
         self.statusbar.showMessage("Save", 5000)
         fileName = QFileDialog.getSaveFileName(self, "Save an imagefile", "./", "Images (*.png *.bmp *.jpg)")
         print(fileName)
         imwrite(fileName[0], self.img)
+
+    def changePen(self):
+        if self.toolPen.isChecked:
+            print('pen')
+            changeCursor(self, ":/cursors/penCur", 0, 16)
+            self.toolPen.isChecked = False
+        else:
+            self.board.setCursor(Qt.ArrowCursor)
+            self.toolPen.isChecked = True
 
 
 if __name__ == "__main__":

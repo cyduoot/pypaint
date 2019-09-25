@@ -2,7 +2,6 @@ import numpy as np
 from PIL import Image
 import cv2
 from PySide2.QtGui import QImage, QPixmap, QCursor
-from PySide2.QtCore import Qt
 
 
 def imread(fileName):
@@ -19,8 +18,9 @@ def imwrite(fileName, img):
 
 def showImage(ui):
     image_height, image_width, image_channel = ui.img.shape
-    qimg = cv2.cvtColor(ui.img, cv2.COLOR_BGR2RGB)
-    qimg = QImage(qimg.data, image_width, image_height,
+    qimg = QImage()
+    timg = cv2.cvtColor(ui.img, cv2.COLOR_BGR2RGB)
+    qimg = QImage(timg.data, image_width, image_height,
                   QImage.Format_RGB888)
     pix = QPixmap.fromImage(qimg)
     ui.board.resize(pix.size())
@@ -32,6 +32,18 @@ def changeCursor(ui, icon, hotX, hotY):
     myPix = QPixmap(icon)
     myCur = QCursor(myPix, hotX, hotY)
     ui.board.setCursor(myCur)
+
+
+def penPress(ui, pos):
+    cv2.circle(ui.img, pos, ui.thickness//2, ui.curColor, -1)
+    ui.lastPos = pos
+    showImage(ui)
+
+
+def penMove(ui, pos):
+    cv2.line(ui.img, ui.lastPos, pos, ui.curColor, ui.thickness)
+    ui.lastPos = pos
+    showImage(ui)
 
 
 if __name__ == "__main__":

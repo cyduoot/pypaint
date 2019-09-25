@@ -19,6 +19,7 @@ def imwrite(fileName, img):
 def showImage(ui):
     image_height, image_width, image_channel = ui.img.shape
     qimg = QImage()
+    qimg.save("a.png")
     timg = cv2.cvtColor(ui.img, cv2.COLOR_BGR2RGB)
     qimg = QImage(timg.data, image_width, image_height,
                   QImage.Format_RGB888)

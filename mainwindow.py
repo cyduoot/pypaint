@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'f:\code\pypaint\mainwindow.ui',
-# licensing of 'f:\code\pypaint\mainwindow.ui' applies.
+# Form implementation generated from reading ui file 'd:\code\pypaint\mainwindow.ui',
+# licensing of 'd:\code\pypaint\mainwindow.ui' applies.
 #
-# Created: Mon Sep 23 22:46:15 2019
+# Created: Wed Sep 25 21:44:21 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -35,6 +35,37 @@ class Ui_cydPaintBoard(object):
         self.toolPen.setIcon(icon)
         self.toolPen.setCheckable(True)
         self.toolPen.setObjectName("toolPen")
+        self.line_2 = QtWidgets.QFrame(self.toolBox)
+        self.line_2.setGeometry(QtCore.QRect(0, 230, 61, 16))
+        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.label_3 = QtWidgets.QLabel(self.toolBox)
+        self.label_3.setGeometry(QtCore.QRect(0, 270, 31, 16))
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(self.toolBox)
+        self.label_4.setGeometry(QtCore.QRect(30, 270, 31, 16))
+        self.label_4.setObjectName("label_4")
+        self.lColor = QtWidgets.QPushButton(self.toolBox)
+        self.lColor.setGeometry(QtCore.QRect(0, 240, 25, 25))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lColor.sizePolicy().hasHeightForWidth())
+        self.lColor.setSizePolicy(sizePolicy)
+        self.lColor.setStyleSheet("background-color: #000000")
+        self.lColor.setText("")
+        self.lColor.setObjectName("lColor")
+        self.rColor = QtWidgets.QPushButton(self.toolBox)
+        self.rColor.setGeometry(QtCore.QRect(30, 240, 25, 25))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.rColor.sizePolicy().hasHeightForWidth())
+        self.rColor.setSizePolicy(sizePolicy)
+        self.rColor.setStyleSheet("background-color:#FFFFFF")
+        self.rColor.setText("")
+        self.rColor.setObjectName("rColor")
         self.horizontalLayout.addWidget(self.toolBox)
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
@@ -77,6 +108,9 @@ class Ui_cydPaintBoard(object):
         self.actionOpen.setObjectName("actionOpen")
         self.actionSave = QtWidgets.QAction(cydPaintBoard)
         self.actionSave.setObjectName("actionSave")
+        self.actionNew = QtWidgets.QAction(cydPaintBoard)
+        self.actionNew.setObjectName("actionNew")
+        self.menuFile.addAction(self.actionNew)
         self.menuFile.addAction(self.actionOpen)
         self.menuFile.addAction(self.actionSave)
         self.menubar.addAction(self.menuFile.menuAction())
@@ -86,8 +120,11 @@ class Ui_cydPaintBoard(object):
 
     def retranslateUi(self, cydPaintBoard):
         cydPaintBoard.setWindowTitle(QtWidgets.QApplication.translate("cydPaintBoard", "MainWindow", None, -1))
+        self.label_3.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Left", None, -1))
+        self.label_4.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Right", None, -1))
         self.menuFile.setTitle(QtWidgets.QApplication.translate("cydPaintBoard", "File", None, -1))
         self.actionOpen.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Open", None, -1))
         self.actionSave.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Save", None, -1))
+        self.actionNew.setText(QtWidgets.QApplication.translate("cydPaintBoard", "New", None, -1))
 
 import paint_rc

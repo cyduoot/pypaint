@@ -1,8 +1,14 @@
 <RCC>
   <qresource prefix="icons">
+    <file alias="circle">image/icons/circle.png</file>
+    <file alias="line">image/icons/line.png</file>
+    <file alias="rec">image/icons/rec.png</file>
+    <file alias="rubber">image/icons/rubber.png</file>
+    <file alias="bucket">image/icons/bucket.png</file>
     <file alias="pen">image/icons/pen.png</file>
   </qresource>
   <qresource prefix="cursors">
     <file alias="penCur">image/cursors/penCur.png</file>
+    <file alias="bucketCur">image/cursors/bucketCur.png</file>
   </qresource>
 </RCC>

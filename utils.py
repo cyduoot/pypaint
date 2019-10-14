@@ -33,6 +33,22 @@ def changeCursor(ui, icon, hotX, hotY):
     ui.board.setCursor(myCur)
 
 
+def changeRubberCursor(ui):
+    img = np.ones((ui.thickness, ui.thickness, 4), np.uint8) * 255
+    for i in range(ui.thickness):
+        for j in range(ui.thickness):
+            img[i, j, 3] = 0
+    cv2.circle(img, (ui.thickness//2, ui.thickness//2), ui.thickness//2, (255, 255, 255, 255), -1)
+    cv2.circle(img, (ui.thickness//2, ui.thickness//2), ui.thickness//2, (0, 0, 0, 255), 1)
+    image_height, image_width, image_channel = img.shape
+    qimg = QImage()
+    timg = cv2.cvtColor(img, cv2.COLOR_BGRA2RGBA)
+    qimg = QImage(timg.data, image_width, image_height, image_width*image_channel, QImage.Format_RGBA8888)
+    myPix = QPixmap.fromImage(qimg)
+    myCur = QCursor(myPix, -1, -1)
+    ui.board.setCursor(myCur)
+
+
 def penPress(ui, pos):
     cv2.circle(ui.img, pos, ui.thickness//2, ui.curColor, -1)
     ui.lastPos = pos
@@ -41,6 +57,18 @@ def penPress(ui, pos):
 
 def penMove(ui, pos):
     cv2.line(ui.img, ui.lastPos, pos, ui.curColor, ui.thickness)
+    ui.lastPos = pos
+    showImage(ui)
+
+
+def rubberPress(ui, pos):
+    cv2.circle(ui.img, pos, ui.thickness//2, (255, 255, 255), -1)
+    ui.lastPos = pos
+    showImage(ui)
+
+
+def rubberMove(ui, pos):
+    cv2.line(ui.img, ui.lastPos, pos, (255, 255, 255), ui.thickness)
     ui.lastPos = pos
     showImage(ui)
 

@@ -73,6 +73,65 @@ def rubberMove(ui, pos):
     showImage(ui)
 
 
+def linePress(ui, pos):
+    ui.lastPos = pos
+    print(pos)
+
+
+def lineMove(ui, pos):
+    timg = ui.img.copy()
+    cv2.line(ui.img, ui.lastPos, pos, ui.curColor, ui.thickness)
+    showImage(ui)
+    ui.img = timg.copy()
+
+
+def lineRelease(ui, pos):
+    cv2.line(ui.img, ui.lastPos, pos, ui.curColor, ui.thickness)
+    showImage(ui)
+
+
+def recPress(ui, pos):
+    ui.lastPos = pos
+    print(pos)
+
+
+def recMove(ui, pos):
+    timg = ui.img.copy()
+    cv2.rectangle(ui.img, ui.lastPos, pos, ui.curColor, ui.thickness)
+    showImage(ui)
+    ui.img = timg.copy()
+
+
+def recRelease(ui, pos):
+    cv2.rectangle(ui.img, ui.lastPos, pos, ui.curColor, ui.thickness)
+    showImage(ui)
+
+
+def circlePress(ui, pos):
+    ui.lastPos = pos
+    print(pos)
+
+
+def calc(p1, p2):
+    center = ((p1[0] + p2[0]) // 2, (p1[1] + p2[1]) // 2)
+    radius = (abs(p1[0] - p2[0]), abs(p1[1] - p2[1]))
+    return center, radius
+
+
+def circleMove(ui, pos):
+    timg = ui.img.copy()
+    center, radius = calc(ui.lastPos, pos)
+    cv2.ellipse(ui.img, center, radius, 0, 0, 360, ui.curColor, ui.thickness)
+    showImage(ui)
+    ui.img = timg.copy()
+
+
+def circleRelease(ui, pos):
+    center, radius = calc(ui.lastPos, pos)
+    cv2.ellipse(ui.img, center, radius, 0, 0, 360, ui.curColor, ui.thickness)
+    showImage(ui)
+
+
 if __name__ == "__main__":
     i = imread("C:/Users/陈杨栋/Pictures/0b538deef01f3a29b0a3ae359525bc315d607ced.jpg")
     cv2.imshow("a", i)

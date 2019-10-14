@@ -4,6 +4,9 @@ from mainwindow import Ui_cydPaintBoard
 from utils import imread, imwrite, showImage, changeCursor, changeRubberCursor
 from utils import penPress, penMove
 from utils import rubberPress, rubberMove
+from utils import linePress, lineMove, lineRelease
+from utils import recPress, recMove, recRelease
+from utils import circlePress, circleMove, circleRelease
 from PySide2.QtCore import Qt
 from inputdialog import InputDialog
 import numpy as np
@@ -166,8 +169,8 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
         labelPos = self.board.mapFromGlobal(globalPos)
         pos = (labelPos.x(), labelPos.y())
         print(labelPos)
-        toolList = [self.toolPen.isChecked(), self.toolRubber.isChecked()]
-        funcList = [penPress, rubberPress]
+        toolList = [self.toolPen.isChecked(), self.toolRubber.isChecked(), self.toolLine.isChecked(), self.toolRec.isChecked(), self.toolCircle.isChecked()]
+        funcList = [penPress, rubberPress, linePress, recPress, circlePress]
         if True in toolList:
             idx = toolList.index(True)
             funcList[idx](self, pos)
@@ -176,8 +179,18 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
         globalPos = self.mapToGlobal(event.pos())
         labelPos = self.board.mapFromGlobal(globalPos)
         pos = (labelPos.x(), labelPos.y())
-        toolList = [self.toolPen.isChecked(), self.toolRubber.isChecked()]
-        funcList = [penMove, rubberMove]
+        toolList = [self.toolPen.isChecked(), self.toolRubber.isChecked(), self.toolLine.isChecked(), self.toolRec.isChecked(), self.toolCircle.isChecked()]
+        funcList = [penMove, rubberMove, lineMove, recMove, circleMove]
+        if True in toolList:
+            idx = toolList.index(True)
+            funcList[idx](self, pos)
+
+    def mouseReleaseEvent(self, event):
+        globalPos = self.mapToGlobal(event.pos())
+        labelPos = self.board.mapFromGlobal(globalPos)
+        pos = (labelPos.x(), labelPos.y())
+        toolList = [self.toolLine.isChecked(), self.toolRec.isChecked(), self.toolCircle.isChecked()]
+        funcList = [lineRelease, recRelease, circleRelease]
         if True in toolList:
             idx = toolList.index(True)
             funcList[idx](self, pos)

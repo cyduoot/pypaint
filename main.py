@@ -7,6 +7,7 @@ from utils import rubberPress, rubberMove
 from utils import linePress, lineMove, lineRelease
 from utils import recPress, recMove, recRelease
 from utils import circlePress, circleMove, circleRelease
+from utils import bucket
 from PySide2.QtCore import Qt
 from inputdialog import InputDialog
 import numpy as np
@@ -110,7 +111,7 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
             self.refreshTools()
             self.toolBucket.setChecked(True)
             print('bucket')
-            changeCursor(self, ":/cursors/bucketCur", 0, 16)
+            changeCursor(self, ":/cursors/bucketCur", 2, 8)
         else:
             self.board.setCursor(Qt.ArrowCursor)
 
@@ -169,8 +170,8 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
         labelPos = self.board.mapFromGlobal(globalPos)
         pos = (labelPos.x(), labelPos.y())
         print(labelPos)
-        toolList = [self.toolPen.isChecked(), self.toolRubber.isChecked(), self.toolLine.isChecked(), self.toolRec.isChecked(), self.toolCircle.isChecked()]
-        funcList = [penPress, rubberPress, linePress, recPress, circlePress]
+        toolList = [self.toolPen.isChecked(), self.toolRubber.isChecked(), self.toolLine.isChecked(), self.toolRec.isChecked(), self.toolCircle.isChecked(), self.toolBucket.isChecked()]
+        funcList = [penPress, rubberPress, linePress, recPress, circlePress, bucket]
         if True in toolList:
             idx = toolList.index(True)
             funcList[idx](self, pos)

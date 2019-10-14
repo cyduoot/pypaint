@@ -132,6 +132,13 @@ def circleRelease(ui, pos):
     showImage(ui)
 
 
+def bucket(ui, pos):
+    h, w = ui.img.shape[:2]
+    mask = np.zeros([h+2, w+2], np.uint8)
+    cv2.floodFill(ui.img, mask, pos, ui.curColor, (0, 0, 0), (0, 0, 0), cv2.FLOODFILL_FIXED_RANGE)
+    showImage(ui)
+
+
 if __name__ == "__main__":
     i = imread("C:/Users/陈杨栋/Pictures/0b538deef01f3a29b0a3ae359525bc315d607ced.jpg")
     cv2.imshow("a", i)

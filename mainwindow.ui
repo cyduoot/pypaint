@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>CYD's Paintboard</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -151,7 +151,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="paint.qrc">
+        <iconset>
          <normaloff>:/icons/line</normaloff>:/icons/line</iconset>
        </property>
        <property name="checkable">
@@ -174,7 +174,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="paint.qrc">
+        <iconset>
          <normaloff>:/icons/rec</normaloff>:/icons/rec</iconset>
        </property>
        <property name="checkable">
@@ -197,7 +197,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="paint.qrc">
+        <iconset>
          <normaloff>:/icons/circle</normaloff>:/icons/circle</iconset>
        </property>
        <property name="checkable">
@@ -220,7 +220,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="paint.qrc">
+        <iconset>
          <normaloff>:/icons/bucket</normaloff>:/icons/bucket</iconset>
        </property>
        <property name="checkable">
@@ -243,7 +243,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="paint.qrc">
+        <iconset>
          <normaloff>:/icons/rubber</normaloff>:/icons/rubber</iconset>
        </property>
        <property name="checkable">

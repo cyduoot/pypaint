@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\code\pypaint\mainwindow.ui',
-# licensing of 'd:\code\pypaint\mainwindow.ui' applies.
+# Form implementation generated from reading ui file 'f:\code\pypaint\mainwindow.ui',
+# licensing of 'f:\code\pypaint\mainwindow.ui' applies.
 #
-# Created: Mon Oct 14 21:11:31 2019
+# Created: Tue Oct 15 00:09:04 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -176,7 +176,7 @@ class Ui_cydPaintBoard(object):
         QtCore.QMetaObject.connectSlotsByName(cydPaintBoard)
 
     def retranslateUi(self, cydPaintBoard):
-        cydPaintBoard.setWindowTitle(QtWidgets.QApplication.translate("cydPaintBoard", "MainWindow", None, -1))
+        cydPaintBoard.setWindowTitle(QtWidgets.QApplication.translate("cydPaintBoard", "CYD\'s Paintboard", None, -1))
         self.label_3.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Left", None, -1))
         self.label_4.setText(QtWidgets.QApplication.translate("cydPaintBoard", "Right", None, -1))
         self.lineEdit.setText(QtWidgets.QApplication.translate("cydPaintBoard", "(0-50)", None, -1))

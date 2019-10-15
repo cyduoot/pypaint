@@ -148,6 +148,8 @@ class paintBoard(QMainWindow, Ui_cydPaintBoard):
             t = int(text)
             if t <= 50:
                 self.thickness = t
+            if self.toolRubber.isChecked():
+                self.changeRubber()
 
     def changeLeftColor(self):
         cl = QColorDialog.getColor()

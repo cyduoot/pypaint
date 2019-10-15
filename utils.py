@@ -62,13 +62,13 @@ def penMove(ui, pos):
 
 
 def rubberPress(ui, pos):
-    cv2.circle(ui.img, pos, ui.thickness//2, (255, 255, 255), -1)
+    cv2.circle(ui.img, pos, ui.thickness//2, ui.rightColor, -1)
     ui.lastPos = pos
     showImage(ui)
 
 
 def rubberMove(ui, pos):
-    cv2.line(ui.img, ui.lastPos, pos, (255, 255, 255), ui.thickness)
+    cv2.line(ui.img, ui.lastPos, pos, ui.rightColor, ui.thickness)
     ui.lastPos = pos
     showImage(ui)
 
